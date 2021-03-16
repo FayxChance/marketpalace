@@ -17,6 +17,9 @@ export class ProductComponent implements OnInit {
   totalPrice ?: number;
   onSelect(product : Product): void {
     this.selectedProduct = product;
+    this.distance = undefined;
+    this.deliveryPrice = undefined;
+    this.totalPrice = undefined;
   }
 
   deliveryPriceRequest(product : Product) :  void {
