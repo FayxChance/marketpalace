@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #0288D1;
+  width: 250px;
+  height: fit-content;
+  padding: 20px;
+  border: 1px white solid;
+  border-radius: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.card-id {
+  display: none;
+}
+
+.name-hz{
+  border-top: 10px solid #E1F5FE ;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.card-name {
+  margin-top: 0px;
+  margin-left: 15px;
+  margin-bottom: 0px;
+  color: #E1F5FE;
+}
+
+.card-description {
+  word-wrap: normal;
+  color: #E1F5FE;
+  font-size: larger;
+  background-color: #4FC3F7;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-price {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #E1F5FE;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card-button {
+  background-color : #00E676 ;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 24px;
+  border-radius: 10px;
+}
