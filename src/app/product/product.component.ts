@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from "../product";
 import { PRODUCTS } from "../mock-products";
-
+import { RequestService } from "../request/request.service";
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -23,15 +24,22 @@ export class ProductComponent implements OnInit {
   }
 
   deliveryPriceRequest(product : Product) :  void {
-    // TODO Faire requete à l'api
     if (this.distance) {
-      this.deliveryPrice = product.price*0.01 * this.distance / 10;
-      this.totalPrice = this.deliveryPrice + product.price;
+      var params = {"weight" : product.weight, "distance" : this.distance};
+      var value = this.requestService.get(params);
+      value.subscribe( (value) => {
+        console.log(value)
+        this.deliveryPrice = value["deliveryCost"];
+        if ( this.deliveryPrice)
+          this.totalPrice = this.deliveryPrice + product.price;
+      });
+        //this.deliveryPrice = value["deliveryCost"].valueOf());
+
     }
 
   }
 
-  constructor() { }
+  constructor(private requestService: RequestService) { }
 
   ngOnInit(): void {
 

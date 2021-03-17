@@ -3,4 +3,5 @@ export interface Product {
   price : number;
   id : number;
   description : string;
+  weight : number;
 }
