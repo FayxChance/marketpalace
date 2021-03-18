@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
   products: any;
   deliveryPrice?: number;
   totalPrice?: number;
+  loaded: boolean = false;
 
   onSelect(product: Product): void {
     this.selectedProduct = product;
@@ -54,6 +55,8 @@ export class ProductComponent implements OnInit {
         `,
       })
       .valueChanges.subscribe((result: any) => {
+        console.log(result);
+        this.loaded = true;
         this.products = result?.data?.getProducts;
       });
   }

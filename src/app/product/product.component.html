@@ -1,39 +1,46 @@
-<div class="card" *ngFor="let product of products">
-  <h1 class="card-name">{{ product.name }}</h1>
-  <hr class="name-hz" />
-  <p class="card-id">{{ product.id }}</p>
-  <p class="card-description">{{ product.description }}</p>
-  <div class="card-price">{{ product.price }} $</div>
-  <div class="card-footer-button">
-    <input
-      class="card-button"
-      type="button"
-      value="Devis"
-      (click)="onSelect(product)"
-    />
-  </div>
-  <div
-    *ngIf="selectedProduct && selectedProduct.id == product.id"
-    class="delivery-footer"
-  >
-    <label for="distance">Distance de livraison :</label>
-    <input
-      class="input-distance"
-      type="number"
-      id="distance"
-      [(ngModel)]="distance"
-      placeholder="Distance"
-    />
-    <input
-      class="button-distance"
-      type="button"
-      value="Frais de livraison"
-      (click)="deliveryPriceRequest(selectedProduct)"
-    />
-    <div *ngIf="deliveryPrice">
-      <p>Frais de port : {{ deliveryPrice }}</p>
-      <label for="total-price">Prix total : </label>
-      <span>{{ totalPrice }}</span>
+<div *ngIf="loaded; else loadingDiv">
+  <div class="card" *ngFor="let product of products">
+    <h1 class="card-name">{{ product.name }}</h1>
+    <hr class="name-hz" />
+    <p class="card-id">{{ product.id }}</p>
+    <p class="card-description">{{ product.description }}</p>
+    <div class="card-price">{{ product.price }} $</div>
+    <div class="card-footer-button">
+      <input
+        class="card-button"
+        type="button"
+        value="Devis"
+        (click)="onSelect(product)"
+      />
+    </div>
+    <div
+      *ngIf="selectedProduct && selectedProduct.id == product.id"
+      class="delivery-footer"
+    >
+      <label for="distance">Distance de livraison :</label>
+      <input
+        class="input-distance"
+        type="number"
+        id="distance"
+        [(ngModel)]="distance"
+        placeholder="Distance"
+      />
+      <input
+        class="button-distance"
+        type="button"
+        value="Frais de livraison"
+        (click)="deliveryPriceRequest(selectedProduct)"
+      />
+      <div *ngIf="deliveryPrice">
+        <p>Frais de port : {{ deliveryPrice }}</p>
+        <label for="total-price">Prix total : </label>
+        <span>{{ totalPrice }}</span>
+      </div>
     </div>
   </div>
 </div>
+<ng-template #loadingDiv
+  ><div class="box-loading">
+    <div class="loading">Loading...</div>
+  </div></ng-template
+>
