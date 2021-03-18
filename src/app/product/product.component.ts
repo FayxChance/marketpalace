@@ -3,6 +3,7 @@ import { Product } from '../product';
 import { PRODUCTS } from '../mock-products';
 import { RequestService } from '../request/request.service';
 import { Observable, of } from 'rxjs';
+import { Apollo, gql } from 'apollo-angular';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,7 @@ import { Observable, of } from 'rxjs';
 export class ProductComponent implements OnInit {
   selectedProduct?: Product;
   distance?: number;
-  products = PRODUCTS;
+  products: any;
   deliveryPrice?: number;
   totalPrice?: number;
 
@@ -35,7 +36,25 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  constructor(private requestService: RequestService) {}
+  constructor(private requestService: RequestService, private apollo: Apollo) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apollo
+      .watchQuery({
+        query: gql`
+          {
+            getProducts {
+              id
+              weight
+              name
+              price
+              description
+            }
+          }
+        `,
+      })
+      .valueChanges.subscribe((result: any) => {
+        this.products = result?.data?.getProducts;
+      });
+  }
 }
