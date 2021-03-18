@@ -8,25 +8,30 @@
     <input
       class="card-button"
       type="button"
-      value="Acheter"
+      value="Devis"
       (click)="onSelect(product)"
     />
   </div>
-  <div *ngIf="selectedProduct && selectedProduct.id == product.id">
+  <div
+    *ngIf="selectedProduct && selectedProduct.id == product.id"
+    class="delivery-footer"
+  >
     <label for="distance">Distance de livraison :</label>
     <input
+      class="input-distance"
       type="number"
       id="distance"
       [(ngModel)]="distance"
-      placeholder="distance"
+      placeholder="Distance"
     />
     <input
+      class="button-distance"
       type="button"
       value="Frais de livraison"
       (click)="deliveryPriceRequest(selectedProduct)"
     />
     <div *ngIf="deliveryPrice">
-      <p>{{ deliveryPrice }}</p>
+      <p>Frais de port : {{ deliveryPrice }}</p>
       <label for="total-price">Prix total : </label>
       <span>{{ totalPrice }}</span>
     </div>
