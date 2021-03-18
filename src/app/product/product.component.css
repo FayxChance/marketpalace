@@ -1,21 +1,31 @@
+* {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #0288D1;
-  width: 250px;
+  background-color: #03a9f4;
+  width: 300px;
   height: fit-content;
   padding: 20px;
   border: 1px white solid;
   border-radius: 10px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  margin: 25px auto;
 }
 
 .card-id {
   display: none;
 }
 
-.name-hz{
-  border-top: 10px solid #E1F5FE ;
+.name-hz {
+  border-top: 10px solid #e1f5fe;
   width: 100%;
   border-radius: 5px;
 }
@@ -24,29 +34,28 @@
   margin-top: 0px;
   margin-left: 15px;
   margin-bottom: 0px;
-  color: #E1F5FE;
+  color: #e1f5fe;
 }
 
 .card-description {
   word-wrap: normal;
-  color: #E1F5FE;
+  color: #212121;
   font-size: larger;
-  background-color: #4FC3F7;
+  background-color: #b3e5fc;
   padding: 10px;
   padding-left: 20px;
   border-radius: 10px;
 }
 
 .card-price {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #E1F5FE;
+  color: #e1f5fe;
   font-size: x-large;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .card-button {
-  background-color : #00E676 ;
+  background-color: #009688;
   border: none;
   color: white;
   text-decoration: none;
@@ -55,4 +64,69 @@
   text-align: center;
   padding: 15px 24px;
   border-radius: 10px;
+  transition: 0.2s;
+}
+
+.card-button:hover {
+  background-color: #14e7d2;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 24px;
+  border-radius: 10px;
+}
+
+.delivery-footer {
+  background-color: #009688;
+  margin: 15px 0px;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.input-distance {
+  width: 100px;
+  margin-right: 20px;
+
+  font-size: 20px;
+  margin: 15px 10px;
+}
+
+.button-distance {
+  background-color: #ffffff;
+  border: none;
+  color: #212121;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-block;
+  text-align: center;
+  padding: 7px 12px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.button-distance:hover {
+  background-color: #bdbdbd;
+  border: none;
+  color: #212121;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-block;
+  text-align: center;
+  padding: 7px 12px;
+  border-radius: 10px;
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+  font-size: xx-large;
+}
+.box-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
